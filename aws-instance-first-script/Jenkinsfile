@@ -29,11 +29,11 @@ pipeline {agent  any
 
         stage('Plan') {
             steps {
-                sh 'pwd;cd terraform/aws-instance-first-script ; terraform init -input=false'
-                sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace new ${environment}'
-                sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace select ${environment}'
-                sh "pwd;cd terraform/aws-instance-first-script ;terraform plan -input=false -out tfplan "
-                sh 'pwd;cd terraform/aws-instance-first-script ;terraform show -no-color tfplan > tfplan.txt'
+                sh ' C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\AWS Project\terraform\aws-instance-first-script ; terraform init -input=false'
+                sh ' C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\AWS Project\terraform\aws-instance-first-script ; terraform workspace new ${environment}'
+                sh ' C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\AWS Project\terraform\aws-instance-first-script ; terraform workspace select ${environment}'
+                sh " C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\AWS Project\terraform\aws-instance-first-script ;terraform plan -input=false -out tfplan "
+                sh ' C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\AWS Project\terraform\aws-instance-first-script ;terraform show -no-color tfplan > tfplan.txt'
             }
         }
         stage('Approval') {
@@ -54,7 +54,7 @@ pipeline {agent  any
 
         stage('Apply') {
             steps {
-                sh "pwd;cd terraform/aws-instance-first-script ; terraform apply -input=false tfplan"
+                sh " C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\AWS Project\terraform\aws-instance-first-script ; terraform apply -input=false tfplan"
             }
         }
     }
